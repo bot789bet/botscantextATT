@@ -71,7 +71,7 @@ def button(update,context):
     query = update.callback_query
     query.answer()
     query.edit_message_text("Đang giải nén...")
-    data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language={query.data}&detectOrientation=True&filetype=JPG&OCREngine=3&isTable=True&scale=True")
+    data=requests.get(f"https://apipro3.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language={query.data}&detectOrientation=True&filetype=JPG&OCREngine=3&isTable=True&scale=True")
     data=data.json()
     if data['IsErroredOnProcessing']==False:
         message=data['ParsedResults'][0]['ParsedText']
