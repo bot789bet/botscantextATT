@@ -77,7 +77,7 @@ def button(update,context):
         message=data['ParsedResults'][0]['ParsedText']
         query.edit_message_text(f"{message}")
     else:
-        query.edit_message_text(text="⚠️ Có lỗi, vui lòng liên hệ telegram @jhny0210 để báo lỗi")
+        query.edit_message_text(text="⚠️ Bot lỗi rùi, vui lòng liên hệ telegram @jhny0210 để báo lỗi ==" (ngày off thì chịu nha)")
 
 persistence=PicklePersistence('userdata')
 def main():
