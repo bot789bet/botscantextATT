@@ -8,6 +8,7 @@ import os
 from functools import wraps
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import requests
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 API_KEY = os.environ.get("API_KEY","") 
 
