@@ -6,6 +6,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters,Callba
 import logging
 import os
 from functools import wraps
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import requests
 
 API_KEY = os.environ.get("API_KEY","") 
@@ -54,16 +55,22 @@ def help(update,context):
 
 @run_async
 @send_typing_action
-def convert_image(update,context):
-        file_id = update.message.photo[-1].file_id
-        newFile=context.bot.get_file(file_id)
-        file= newFile.file_path
-        context.user_data['filepath']=file
-        keyboard =  [[InlineKeyboardButton("Vietnamese", callback_data='vie')
-                     ]
-                    ]
-        reply_markup = InlineKeyboardMarkup(keyboard)
+def convert_image(update, context):
+    file_id = update.message.photo[-1].file_id
+    newFile = context.bot.get_file(file_id)
+    file = newFile.file_path
+    context.user_data['filepath'] = file
+    
+    user_id = update.message.from_user.id  # Lấy user_id của người gửi
+    
+    keyboard = [[InlineKeyboardButton("Vietnamese", callback_data='vie')]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    
+    # Chỉ cho người gửi được quyền bấm vào nút
+    if user_id == update.effective_user.id:
         update.message.reply_text("Ai gửi thì bấm vào đây 👇", reply_markup=reply_markup)
+    else:
+        update.message.reply_text("Bạn không có quyền bấm vào nút.")
 
 @run_async
 def button(update,context):
