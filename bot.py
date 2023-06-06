@@ -42,7 +42,7 @@ def start(update,context):
     keybord1 = [[InlineKeyboardButton("Owner 👨‍💻", url=f"https://t.me/{OWNER}"),
                  InlineKeyboardButton("Tutorial 📺", url="https://7789bets.com")]]
     reply_markup = InlineKeyboardMarkup(keybord1)
-    update.message.reply_text('Hi! '+str(first)+' \n\nBot Quét ảnh ra chữ. Được tạo bởi Jhny0210. Powered by 789bet.\n\nGo /help de duoc tro giup...', reply_markup=reply_markup)
+    update.message.reply_text('Hi! '+str(first)+' \n\nBot Quét ảnh ra chữ. Được tạo bởi johnnytr0210. Powered by 789bet.\n\nGo /help de duoc tro giup...', reply_markup=reply_markup)
 
 def help(update,context):
     """Send a message when the command /help is issued."""
@@ -85,7 +85,7 @@ def button(update,context):
         message=data['ParsedResults'][0]['ParsedText']
         query.edit_message_text(f"{message}")
     else:
-        query.edit_message_text(text="⚠️ Bot lỗi rùi, vui lòng liên hệ telegram @jhny0210 để báo lỗi")
+        query.edit_message_text(text="⚠️ Bot lỗi rùi, vui lòng liên hệ telegram @johnnytr0210 để báo lỗi")
 
 persistence=PicklePersistence('userdata')
 def main():
